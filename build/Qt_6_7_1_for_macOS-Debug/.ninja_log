@@ -1,0 +1,9 @@
+# ninja log v5
+1	547	1718892941343150333	KaraokeMaker_autogen/timestamp	41f3254c2380547
+1	547	1718892941343150333	KaraokeMaker_autogen/mocs_compilation.cpp	41f3254c2380547
+1	547	1718892941343150333	/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/build/Qt_6_7_1_for_macOS-Debug/KaraokeMaker_autogen/timestamp	41f3254c2380547
+1	547	1718892941343150333	/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/build/Qt_6_7_1_for_macOS-Debug/KaraokeMaker_autogen/mocs_compilation.cpp	41f3254c2380547
+547	2934	1718892943749676704	CMakeFiles/KaraokeMaker.dir/main.cpp.o	e8fae16aa98d8320
+547	2938	1718892943749697009	CMakeFiles/KaraokeMaker.dir/KaraokeMaker_autogen/mocs_compilation.cpp.o	53c5b04a948a0f76
+548	2972	1718892943793589864	CMakeFiles/KaraokeMaker.dir/mainwindow.cpp.o	2e0b7fbc4b66cdc5
+2972	3216	1718892944037619962	KaraokeMaker.app/Contents/MacOS/KaraokeMaker	f17be3b3ae5c9f88

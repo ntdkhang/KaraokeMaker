@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-e8ec0a674f45d49c2f67.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "KaraokeMaker",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "KaraokeMaker::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-KaraokeMaker-Debug-0c4c0f02b6a0dc190251.json",
+					"name" : "KaraokeMaker",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "KaraokeMaker_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-KaraokeMaker_autogen-Debug-a0add861e6dcc912dfbf.json",
+					"name" : "KaraokeMaker_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "KaraokeMaker_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-KaraokeMaker_autogen_timestamp_deps-Debug-ac7b90d4b622454d20a2.json",
+					"name" : "KaraokeMaker_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/build/Qt_6_7_1_for_macOS-Debug",
+		"source" : "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

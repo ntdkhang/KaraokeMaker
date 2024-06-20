@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-dee9a43d4041c36125b9.json",
+					"jsonFile" : "directory-.-Debug-8b4d49def4945971bb3a.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "KaraokeMaker::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-KaraokeMaker-Debug-23a78e4b8697188d677c.json",
+					"jsonFile" : "target-KaraokeMaker-Debug-5605af14ec93460b74cd.json",
 					"name" : "KaraokeMaker",
 					"projectIndex" : 0
 				},
