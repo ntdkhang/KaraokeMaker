@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(KaraokeMaker VERSION 0.1 LANGUAGES CXX)
 
-set(CMAKE_PREFIX_PATH "/Users/dk/Qt/6.7.1/macos/lib/cmake/")
+set(CMAKE_PREFIX_PATH "/Users/dk/Qt/6.7.2/macos/lib/cmake/")
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -14,6 +14,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Multimedia)
+find_package(Qt6 REQUIRED COMPONENTS MultimediaWidgets)
+
 
 set(PROJECT_SOURCES
         main.cpp
@@ -45,7 +48,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(KaraokeMaker PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(KaraokeMaker PRIVATE Qt6::Widgets Qt6::Multimedia Qt6::MultimediaWidgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
