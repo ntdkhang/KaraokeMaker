@@ -23,14 +23,13 @@ public:
     ~MainWindow();
 
 private slots:
+    void durationChanged(qint64 duration);
+
+    void positionChanged(qint64 progress);
 
     void on_actionOpen_triggered();
 
     void on_horizontalSlider_progress_valueChanged(int value);
-
-    void on_pushButton_seek_backward_toggled(bool checked);
-
-    void on_pushButton_seek_forward_toggled(bool checked);
 
     void on_pushButton_play_pause_clicked();
 
@@ -40,13 +39,22 @@ private slots:
 
     void on_horizontalSlider_volume_valueChanged(int value);
 
+    void on_pushButton_seek_backward_clicked();
+
+    void on_pushButton_seek_forward_clicked();
+
 private:
-    Ui::MainWindow *ui;
-    QMediaPlayer *player;
+    Ui::MainWindow *player;
+    QMediaPlayer *m_player;
+
     QVideoWidget *video;
+
+
     QAudioOutput *audioOutput;
-    qint64 mDuration;
+    qint64 m_duration;
     bool is_paused = true;
     bool is_muted = false;
+
+    void updateDurationInfo(qint64 currentInfo);
 };
 #endif // MAINWINDOW_H
