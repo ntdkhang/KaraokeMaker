@@ -45,7 +45,7 @@ void MainWindow::durationChanged(qint64 duration) {
 
 void MainWindow::positionChanged(qint64 progress) {
     qInfo() << "progress: " << progress;
-    // player->horizontalSlider_progress->setValue(progress/1000);
+    player->horizontalSlider_progress->setValue(progress);
 }
 
 void MainWindow::updateDurationInfo(qint64 currentInfo) {
@@ -73,7 +73,9 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_horizontalSlider_progress_valueChanged(int value)
 {
-    m_player->setPosition(value);
+    // TODO: changing slider value doesn't change video progress
+
+    // m_player->setPosition(value);
 }
 
 void MainWindow::on_horizontalSlider_volume_valueChanged(int value)
@@ -120,15 +122,14 @@ void MainWindow::on_pushButton_mute_clicked()
 
 void MainWindow::on_pushButton_seek_backward_clicked()
 {
-    // TODO: slider progress is not updated correctly right now
-    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() - 10);
-    // player->setPosition(ui->horizontalSlider_progress->value() * 1000);
+    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() - 10000);
+    m_player->setPosition(player->horizontalSlider_progress->value());
 }
 
 
 void MainWindow::on_pushButton_seek_forward_clicked()
 {
-    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() + 10);
-    // player->setPosition(ui->horizontalSlider_progress->value() * 1000);
+    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() + 10000);
+    m_player->setPosition(player->horizontalSlider_progress->value());
 }
 
