@@ -29,7 +29,6 @@ private slots:
 
     void on_actionOpen_triggered();
 
-    void on_horizontalSlider_progress_valueChanged(int value);
 
     void on_pushButton_play_pause_clicked();
 
@@ -42,6 +41,7 @@ private slots:
     void on_pushButton_seek_backward_clicked();
 
     void on_pushButton_seek_forward_clicked();
+
 
 private:
     Ui::MainWindow *player;

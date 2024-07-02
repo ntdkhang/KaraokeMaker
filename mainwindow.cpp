@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(m_player, &QMediaPlayer::durationChanged, this, &MainWindow::durationChanged);
     connect(m_player, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
+    connect(player->horizontalSlider_progress, &QSlider::sliderMoved, m_player, &QMediaPlayer::setPosition);
 }
 
 MainWindow::~MainWindow()
@@ -39,12 +40,10 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::durationChanged(qint64 duration) {
-    qInfo() << duration;
     player->horizontalSlider_progress->setMaximum(duration);
 }
 
 void MainWindow::positionChanged(qint64 progress) {
-    qInfo() << "progress: " << progress;
     player->horizontalSlider_progress->setValue(progress);
 }
 
@@ -69,13 +68,6 @@ void MainWindow::on_actionOpen_triggered()
 
     video->setVisible(true);
     video->show();
-}
-
-void MainWindow::on_horizontalSlider_progress_valueChanged(int value)
-{
-    // TODO: changing slider value doesn't change video progress
-
-    // m_player->setPosition(value);
 }
 
 void MainWindow::on_horizontalSlider_volume_valueChanged(int value)
@@ -132,4 +124,5 @@ void MainWindow::on_pushButton_seek_forward_clicked()
     player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() + 10000);
     m_player->setPosition(player->horizontalSlider_progress->value());
 }
+
 
