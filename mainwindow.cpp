@@ -45,12 +45,25 @@ void MainWindow::durationChanged(qint64 duration) {
 
 void MainWindow::positionChanged(qint64 progress) {
     player->horizontalSlider_progress->setValue(progress);
+    updateDurationInfo(progress);
 }
 
 void MainWindow::updateDurationInfo(qint64 currentInfo) {
+    // currentInfo is the progress in milliseconds
+
     if (currentInfo || m_duration) {
-        QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, (currentInfo % 60));
-        QTime totalTime((m_duration / 3600) % 60, (m_duration / 60) % 60, (m_duration % 60));
+        QTime currentTime((currentInfo / 3600000) % 60, (currentInfo / 60000) % 60, ((currentInfo / 1000) % 60));
+        QTime totalTime((m_duration / 3600000) % 60, (m_duration / 60000) % 60, (m_duration / 1000 % 60));
+        QString format = "mm:ss";
+        if (m_duration > 3600) {
+            format = "hh:mm:ss";
+        }
+        QString currentLabel, totalLabel;
+        currentLabel = currentTime.toString(format);
+        totalLabel = totalTime.toString(format);
+
+        player->label_current_time->setText(currentLabel);
+        player->label_total_time->setText(totalLabel);
     }
 }
 

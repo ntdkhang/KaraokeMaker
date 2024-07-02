@@ -29,7 +29,6 @@ private slots:
 
     void on_actionOpen_triggered();
 
-
     void on_pushButton_play_pause_clicked();
 
     void on_pushButton_stop_clicked();
