@@ -41,6 +41,7 @@ private slots:
 
     void on_pushButton_seek_forward_clicked();
 
+    void on_pushButton_test_clicked();
 
 private:
     Ui::MainWindow *player;

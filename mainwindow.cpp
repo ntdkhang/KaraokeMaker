@@ -123,8 +123,6 @@ void MainWindow::on_pushButton_mute_clicked()
 }
 
 
-
-
 void MainWindow::on_pushButton_seek_backward_clicked()
 {
     player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() - 10000);
@@ -139,3 +137,37 @@ void MainWindow::on_pushButton_seek_forward_clicked()
 }
 
 
+
+void MainWindow::on_pushButton_test_clicked()
+{
+    QObject *parent;
+    QString program = "/usr/local/Cellar/ffmpeg/7.0.1/bin/ffmpeg";
+    QString input = "/Users/dk/Downloads/XeDo.mp4";
+    QString textOverlay = "drawtext=fontfile=/Library/Fonts/SF-Compact-Display-Regular.otf:text='Hello World':fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=(w-text_w)/2:y=(h-text_h)/2";
+    QString output = "/Users/dk/Downloads/testOutput.mp4";
+    QStringList arguments;
+    arguments   << "-i"
+                << input
+                << "-vf"
+                << textOverlay
+                << "-codec:a"
+                << "copy"
+                << output;
+    QProcess *myProcess = new QProcess(parent);
+
+    myProcess->start(program, arguments);
+    myProcess->waitForFinished();
+    QString stdOut(myProcess->readAllStandardOutput());
+    qInfo() << stdOut;
+}
+
+/*
+   ffmpeg
+   -i
+   /Users/dk/Downloads/XeDo.mp4
+   -vf
+   "drawtext=fontfile=/Library/Fonts/SF-Compact-Display-Regular.otf:text='Hello World':fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=(w-text_w)/2:y=(h-text_h)/2"
+   -codec:a
+   copy
+   output.mp4
+   */
