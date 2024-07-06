@@ -448,6 +448,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.h",
+			"MU",
+			"EWIEGA46WW/moc_arggenerator.cpp",
+			null
+		],
+		[
 			"/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -525,6 +531,11 @@
 	"SETTINGS_FILE" : "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/build/Qt_6_7_2_for_macOS-Debug/CMakeFiles/KaraokeMaker_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.cpp",
+			"MU",
+			null
+		],
 		[
 			"/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/main.cpp",
 			"MU",

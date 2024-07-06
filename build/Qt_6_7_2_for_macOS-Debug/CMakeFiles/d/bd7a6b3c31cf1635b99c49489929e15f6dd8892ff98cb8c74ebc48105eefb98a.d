@@ -93,6 +93,8 @@ KaraokeMaker_autogen/timestamp: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/syslimits.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h \
   /Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeLists.txt \
+  /Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.cpp \
+  /Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.h \
   .qtc/package-manager/auto-setup.cmake \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \

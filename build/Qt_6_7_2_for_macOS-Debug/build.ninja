@@ -73,6 +73,14 @@ build CMakeFiles/KaraokeMaker.dir/mainwindow.cpp.o: CXX_COMPILER__KaraokeMaker_u
   OBJECT_DIR = CMakeFiles/KaraokeMaker.dir
   OBJECT_FILE_DIR = CMakeFiles/KaraokeMaker.dir
 
+build CMakeFiles/KaraokeMaker.dir/arggenerator.cpp.o: CXX_COMPILER__KaraokeMaker_unscanned_Debug /Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.cpp || cmake_object_order_depends_target_KaraokeMaker
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIAWIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/KaraokeMaker.dir/arggenerator.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -fcolor-diagnostics
+  INCLUDES = -I/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/build/Qt_6_7_2_for_macOS-Debug/KaraokeMaker_autogen/include -isystem /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Headers -iframework /Users/dk/Qt/6.7.2/macos/lib -isystem /Users/dk/Qt/6.7.2/macos/mkspecs/macx-clang -isystem /Users/dk/Qt/6.7.2/macos/include -isystem /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/dk/Qt/6.7.2/macos/lib/QtGui.framework/Headers -isystem /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Headers -isystem /Users/dk/Qt/6.7.2/macos/lib/QtNetwork.framework/Headers -isystem /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Headers
+  OBJECT_DIR = CMakeFiles/KaraokeMaker.dir
+  OBJECT_FILE_DIR = CMakeFiles/KaraokeMaker.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target KaraokeMaker
@@ -81,7 +89,7 @@ build CMakeFiles/KaraokeMaker.dir/mainwindow.cpp.o: CXX_COMPILER__KaraokeMaker_u
 #############################################
 # Link the executable KaraokeMaker.app/Contents/MacOS/KaraokeMaker
 
-build KaraokeMaker.app/Contents/MacOS/KaraokeMaker: CXX_EXECUTABLE_LINKER__KaraokeMaker_Debug CMakeFiles/KaraokeMaker.dir/KaraokeMaker_autogen/mocs_compilation.cpp.o CMakeFiles/KaraokeMaker.dir/main.cpp.o CMakeFiles/KaraokeMaker.dir/mainwindow.cpp.o | /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia /Users/dk/Qt/6.7.2/macos/lib/QtNetwork.framework/Versions/A/QtNetwork /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dk/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore || KaraokeMaker_autogen KaraokeMaker_autogen_timestamp_deps
+build KaraokeMaker.app/Contents/MacOS/KaraokeMaker: CXX_EXECUTABLE_LINKER__KaraokeMaker_Debug CMakeFiles/KaraokeMaker.dir/KaraokeMaker_autogen/mocs_compilation.cpp.o CMakeFiles/KaraokeMaker.dir/main.cpp.o CMakeFiles/KaraokeMaker.dir/mainwindow.cpp.o CMakeFiles/KaraokeMaker.dir/arggenerator.cpp.o | /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia /Users/dk/Qt/6.7.2/macos/lib/QtNetwork.framework/Versions/A/QtNetwork /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dk/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore || KaraokeMaker_autogen KaraokeMaker_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6
   LINK_LIBRARIES = -Wl,-rpath,/Users/dk/Qt/6.7.2/macos/lib  /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets  /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia  /Users/dk/Qt/6.7.2/macos/lib/QtNetwork.framework/Versions/A/QtNetwork  /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets  /Users/dk/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/QtGui  /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore  -framework IOKit  -framework DiskArbitration  -Xlinker -framework -Xlinker OpenGL  -Xlinker -framework -Xlinker AGL  -framework AppKit  -framework ImageIO  -framework Metal
   LINK_PATH = -iframework /Users/dk/Qt/6.7.2/macos/lib
@@ -183,7 +191,7 @@ build KaraokeMaker_autogen/timestamp KaraokeMaker_autogen/mocs_compilation.cpp |
 #############################################
 # Phony custom command for CMakeFiles/KaraokeMaker_autogen_timestamp_deps
 
-build CMakeFiles/KaraokeMaker_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/KaraokeMaker_autogen_timestamp_deps: phony /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dk/Qt/6.7.2/macos/./libexec/uic /Users/dk/Qt/6.7.2/macos/./libexec/moc /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets
+build CMakeFiles/KaraokeMaker_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/KaraokeMaker_autogen_timestamp_deps: phony /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore /Users/dk/Qt/6.7.2/macos/./libexec/uic /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia /Users/dk/Qt/6.7.2/macos/./libexec/moc /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets
 
 
 #############################################
