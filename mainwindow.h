@@ -43,6 +43,8 @@ private slots:
 
     void on_pushButton_test_clicked();
 
+    void on_pushButton_save_subtitles_clicked();
+
 private:
     Ui::MainWindow *player;
     QMediaPlayer *m_player;

@@ -5,6 +5,7 @@
 #include <QtCore/qlogging.h>
 #include <QtMultimedia/qaudio.h>
 #include <QtWidgets/qfiledialog.h>
+#include <fstream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -167,3 +168,16 @@ void MainWindow::on_pushButton_test_clicked()
    copy
    output.mp4
    */
+
+void MainWindow::on_pushButton_save_subtitles_clicked()
+{
+    // get text from editor
+    QString text = player->plainTextEdit_subtitle->toPlainText();
+
+    // save to srt
+    std::ofstream srtFile;
+    srtFile.open("/Users/dk/Downloads/sub.srt");
+    srtFile << text.toStdString();
+    srtFile.close();
+}
+
