@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     player->setupUi(this);
 
+    // media player
     m_player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
     m_player->setAudioOutput(audioOutput);
@@ -30,6 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
     player->pushButton_seek_forward->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
     player->pushButton_seek_backward->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
     player->pushButton_mute->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+
+
+    // Subtitles
+    player->plainTextEdit_subtitle->setReadOnly(true);
 
 
     connect(m_player, &QMediaPlayer::durationChanged, this, &MainWindow::durationChanged);
@@ -186,14 +191,14 @@ void MainWindow::on_pushButton_save_subtitles_clicked()
 
 void MainWindow::on_pushButton_insert_time_start_clicked()
 {
-    player->plainTextEdit_subtitle->moveCursor(QTextCursor::End);
-    player->plainTextEdit_subtitle->insertPlainText(QString::number(subtitleIndex));
-    player->plainTextEdit_subtitle->insertPlainText("\n");
+    player->plainTextEdit_create_sub->moveCursor(QTextCursor::End);
+    player->plainTextEdit_create_sub->insertPlainText(QString::number(subtitleIndex));
+    player->plainTextEdit_create_sub->insertPlainText("\n");
 
     QString timeStart = player->label_current_time->text();
     timeStart.append(",000");
-
-    player->plainTextEdit_subtitle->insertPlainText(timeStart);
+    player->plainTextEdit_create_sub->insertPlainText(timeStart);
+    player->plainTextEdit_create_sub->insertPlainText(" --> ");
 }
 
 
@@ -202,11 +207,22 @@ void MainWindow::on_pushButton_insert_time_end_clicked()
     QString timeEnd = player->label_current_time->text();
     timeEnd.append(",000");
 
-    player->plainTextEdit_subtitle->moveCursor(QTextCursor::End);
-    player->plainTextEdit_subtitle->insertPlainText(" --> ");
-    player->plainTextEdit_subtitle->insertPlainText(timeEnd);
-    player->plainTextEdit_subtitle->insertPlainText("\n");
+    player->plainTextEdit_create_sub->moveCursor(QTextCursor::End);
+    player->plainTextEdit_create_sub->insertPlainText(timeEnd);
+    player->plainTextEdit_create_sub->insertPlainText("\n");
 
     subtitleIndex++;
+}
+
+
+void MainWindow::on_pushButton_insert_subtitle_line_clicked()
+{
+    QString line = player->plainTextEdit_create_sub->toPlainText();
+    if (!line.isEmpty()) {
+        player->plainTextEdit_subtitle->moveCursor(QTextCursor::End);
+        player->plainTextEdit_subtitle->insertPlainText(line);
+        player->plainTextEdit_subtitle->insertPlainText("\n\n");
+        player->plainTextEdit_create_sub->clear();
+    }
 }
 

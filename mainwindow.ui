@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1619</width>
-    <height>1015</height>
+    <width>1616</width>
+    <height>865</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -179,15 +179,15 @@
       <x>870</x>
       <y>10</y>
       <width>691</width>
-      <height>891</height>
+      <height>701</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_save_subtitles">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>540</y>
+      <x>1190</x>
+      <y>720</y>
       <width>111</width>
       <height>61</height>
      </rect>
@@ -199,8 +199,8 @@
    <widget class="QPushButton" name="pushButton_insert_time_start">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>540</y>
+      <x>20</x>
+      <y>720</y>
       <width>111</width>
       <height>61</height>
      </rect>
@@ -212,14 +212,37 @@
    <widget class="QPushButton" name="pushButton_insert_time_end">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>540</y>
-      <width>111</width>
+      <x>180</x>
+      <y>720</y>
+      <width>121</width>
       <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string>Insert time end</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_create_sub">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>471</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_insert_subtitle_line">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>720</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Insert subtitle line</string>
     </property>
    </widget>
   </widget>
@@ -228,7 +251,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1619</width>
+     <width>1616</width>
      <height>24</height>
     </rect>
    </property>

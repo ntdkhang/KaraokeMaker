@@ -49,6 +49,8 @@ private slots:
 
     void on_pushButton_insert_time_end_clicked();
 
+    void on_pushButton_insert_subtitle_line_clicked();
+
 private:
     Ui::MainWindow *player;
     QMediaPlayer *m_player;
