@@ -186,14 +186,40 @@
    <widget class="QPushButton" name="pushButton_save_subtitles">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>660</y>
+      <x>730</x>
+      <y>540</y>
       <width>111</width>
       <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string>Save Subtitles</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_insert_time_start">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>540</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Insert time start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_insert_time_end">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>540</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Insert time end</string>
     </property>
    </widget>
   </widget>

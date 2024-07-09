@@ -45,6 +45,10 @@ private slots:
 
     void on_pushButton_save_subtitles_clicked();
 
+    void on_pushButton_insert_time_start_clicked();
+
+    void on_pushButton_insert_time_end_clicked();
+
 private:
     Ui::MainWindow *player;
     QMediaPlayer *m_player;
@@ -56,6 +60,7 @@ private:
     qint64 m_duration;
     bool is_paused = true;
     bool is_muted = false;
+    qint32 subtitleIndex = 1;
 
     void updateDurationInfo(qint64 currentInfo);
 };

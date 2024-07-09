@@ -6,6 +6,7 @@
 #include <QtMultimedia/qaudio.h>
 #include <QtWidgets/qfiledialog.h>
 #include <fstream>
+#include <string>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,6 +44,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::durationChanged(qint64 duration) {
     player->horizontalSlider_progress->setMaximum(duration);
+    m_duration = duration;
 }
 
 void MainWindow::positionChanged(qint64 progress) {
@@ -179,5 +181,32 @@ void MainWindow::on_pushButton_save_subtitles_clicked()
     srtFile.open("/Users/dk/Downloads/sub.srt");
     srtFile << text.toStdString();
     srtFile.close();
+}
+
+
+void MainWindow::on_pushButton_insert_time_start_clicked()
+{
+    player->plainTextEdit_subtitle->moveCursor(QTextCursor::End);
+    player->plainTextEdit_subtitle->insertPlainText(QString::number(subtitleIndex));
+    player->plainTextEdit_subtitle->insertPlainText("\n");
+
+    QString timeStart = player->label_current_time->text();
+    timeStart.append(",000");
+
+    player->plainTextEdit_subtitle->insertPlainText(timeStart);
+}
+
+
+void MainWindow::on_pushButton_insert_time_end_clicked()
+{
+    QString timeEnd = player->label_current_time->text();
+    timeEnd.append(",000");
+
+    player->plainTextEdit_subtitle->moveCursor(QTextCursor::End);
+    player->plainTextEdit_subtitle->insertPlainText(" --> ");
+    player->plainTextEdit_subtitle->insertPlainText(timeEnd);
+    player->plainTextEdit_subtitle->insertPlainText("\n");
+
+    subtitleIndex++;
 }
 
