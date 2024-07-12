@@ -186,6 +186,7 @@ void MainWindow::on_pushButton_save_subtitles_clicked()
     srtFile.open("/Users/dk/Downloads/sub.srt");
     srtFile << text.toStdString();
     srtFile.close();
+
 }
 
 
