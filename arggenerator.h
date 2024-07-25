@@ -8,13 +8,12 @@ class ArgGenerator
 public:
     ArgGenerator(QString input);
 
-    void CreateText(QString text);
+    QStringList CreateText(QString text);
 
-    QStringList getArgs();
+    QStringList BurnSubtitle(QString subtitleFileName);
 
 private:
-    QStringList args;
-    QString inputFile;
+    QString inputFileName;
 };
 
 #endif // ARGGENERATOR_H

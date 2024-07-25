@@ -152,6 +152,9 @@ void MainWindow::on_pushButton_seek_forward_clicked()
 }
 
 
+/*
+   ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi
+   */
 
 void MainWindow::on_pushButton_test_clicked()
 {
@@ -160,8 +163,7 @@ void MainWindow::on_pushButton_test_clicked()
     QString input = "/Users/dk/Downloads/XeDo.mp4";
 
     ArgGenerator generator(input);
-    generator.CreateText("Dit me may");
-    QStringList arguments = generator.getArgs();
+    QStringList arguments = generator.BurnSubtitle("sub.srt");
 
     QProcess *myProcess = new QProcess(parent);
 
@@ -182,6 +184,7 @@ void MainWindow::on_pushButton_test_clicked()
    output.mp4
    */
 
+
 void MainWindow::on_pushButton_save_subtitles_clicked()
 {
     // get text from editor
@@ -189,7 +192,7 @@ void MainWindow::on_pushButton_save_subtitles_clicked()
 
     // save to srt
     std::ofstream srtFile;
-    srtFile.open("/Users/dk/Downloads/sub.srt");
+    srtFile.open("sub.srt");
     srtFile << text.toStdString();
     srtFile.close();
 
@@ -249,8 +252,6 @@ void MainWindow::on_actionOpen_original_audio_triggered()
                 << "--mp3" << "--mp3-bitrate=320"
                 << "--two-stems=vocals"
                 << fileName;
-
-
 
     QProcess *myProcess = new QProcess(parent);
 
