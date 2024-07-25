@@ -7,7 +7,7 @@ import sys
 from typing import Dict, Tuple, Optional, IO
 
 model = "htdemucs_ft"
-extension = "mp3"
+extension = ["mp3"]
 two_stems = "vocals" # Separate vocal and beat
 
 # Options for the output audio.
@@ -66,15 +66,16 @@ def separate(inp=None, outp=None):
     print("Going to separate the files:")
     print('\n'.join(files))
     print("With command: ", " ".join(cmd))
-    p = sp.Popen(cmd + files[:0], stdout=sp.PIPE, stderr=sp.PIPE)
+    # print(cmd + files)
+    p = sp.Popen(cmd + files, stdout=sp.PIPE, stderr=sp.PIPE)
     # copy_process_streams(p)
     p.wait()
     # if p.returncode != 0:
         # print("Command failed, something went wrong.")
 
 
-# separate("/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/music/", "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/music_separated/")
+separate("/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/music/", "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/music_separated/")
 
-import demucs.separate
-
-demucs.separate.main(["--mp3", "--two-stems", "vocals", "-n", "htdemucs_ft", "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/music/0_ai_nghi.mp3"])
+# import demucs.separate
+#
+# demucs.separate.main(["--mp3", "--two-stems", "vocals", "-n", "htdemucs_ft", "/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/music/0_ai_nghi.mp3"])

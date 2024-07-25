@@ -262,12 +262,24 @@
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
    </widget>
+   <widget class="QMenu" name="menuSelect_Audio_File">
+    <property name="title">
+     <string>Select Audio File</string>
+    </property>
+    <addaction name="actionOpen_original_audio"/>
+   </widget>
    <addaction name="menuSelect_Video_file"/>
+   <addaction name="menuSelect_Audio_File"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
+   </property>
+  </action>
+  <action name="actionOpen_original_audio">
+   <property name="text">
+    <string>Open original audio</string>
    </property>
   </action>
  </widget>

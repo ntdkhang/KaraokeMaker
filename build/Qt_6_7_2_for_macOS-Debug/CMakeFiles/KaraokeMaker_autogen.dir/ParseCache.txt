@@ -737,5 +737,5 @@
  mdp:/Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qwidget.h
  mdp:/Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qwidgetaction.h
  mdp:/Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qwizard.h
-/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.h
 /Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.cpp
+/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.h

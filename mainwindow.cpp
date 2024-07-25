@@ -3,10 +3,16 @@
 #include "arggenerator.h"
 #include <OpenGL/OpenGL.h>
 #include <QtCore/qlogging.h>
+#include <QtCore/qprocess.h>
+#include <QtCore/qtenvironmentvariables.h>
 #include <QtMultimedia/qaudio.h>
 #include <QtWidgets/qfiledialog.h>
+#include <cstdio>
+#include <cstdlib>
 #include <fstream>
 #include <string>
+#include <stdio.h>
+#include <unistd.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -225,5 +231,70 @@ void MainWindow::on_pushButton_insert_subtitle_line_clicked()
         player->plainTextEdit_subtitle->insertPlainText("\n\n");
         player->plainTextEdit_create_sub->clear();
     }
+}
+
+
+void MainWindow::on_actionOpen_original_audio_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Select Original Audio File For Separation"), "", tr("MP3 Files (*.mp3)"));
+    qInfo() << fileName;
+
+    /* std::string cmd = "/bin/zsh -c \"";
+    cmd += "/usr/local/Cellar/python@3.11/3.11.7_1/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python";
+    cmd += " -m demucs.separate -n ";
+
+    cmd += "htdemucs";
+    cmd += " --mp3 --mp3-bitrate=320 --two-stems=vocals ";
+    cmd += fileName.toStdString();
+    cmd += "\"";
+    qInfo() << cmd; */
+
+    // std::string cmd = "pwd";
+    // std::system(cmd.c_str());
+
+    // FILE *pipe = popen(cmd.c_str(), "r");
+
+    // std::string tmp_cmd = "zsh -c \"echo $0\"";
+    // FILE *pipe = popen(tmp_cmd.c_str(), "r");
+
+
+    // std::array<char, 128> buffer;
+    // while (fgets(buffer.data(), 128, pipe) != NULL) {
+    //     qInfo() << "Reading..." << buffer.data();
+    // }
+
+    // pclose(pipe);
+
+
+    // cmd += " -m demucs.separate -n ";
+    //
+    // cmd += "htdemucs";
+    // cmd += " --mp3 --mp3-bitrate=320 --two-stems=vocals ";
+    // cmd += fileName.toStdString();
+    QObject *parent;
+    QString python = "/usr/local/Cellar/python@3.11/3.11.7_1/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python";
+
+    QStringList arguments;
+
+    arguments   << "-m" << "demucs.separate"
+                << "-n" << "htdemucs"
+                << "--mp3" << "--mp3-bitrate=320"
+                << "--two-stems=vocals"
+                << fileName;
+
+
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("PATH", "/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin://Applications/Topaz Gigapixel AI.app/Contents/Resources/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin://Applications/Topaz Photo AI.app/Contents/Resources/bin:/Users/dk/.local/bin:/Users/dk/.local/bin:/usr/local/go/bin:/Users/dk/.local/bin");
+    // qInfo() << env.value("PATH");
+
+    QProcess *myProcess = new QProcess(parent);
+
+    myProcess->start(python, arguments);
+    myProcess->waitForFinished();
+    QString stdOut(myProcess->readAllStandardOutput());
+    qInfo() << stdOut;
+    QString stdErr(myProcess->readAllStandardError());
+    qInfo() << stdErr;
+
 }
 

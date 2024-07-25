@@ -51,6 +51,8 @@ private slots:
 
     void on_pushButton_insert_subtitle_line_clicked();
 
+    void on_actionOpen_original_audio_triggered();
+
 private:
     Ui::MainWindow *player;
     QMediaPlayer *m_player;
