@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-9bcc1a3e5aac72d0ede1b693d90a1801 CMakeFiles/KaraokeMaker_autogen
-202f74710b2b304cb636fb9707363973 KaraokeMaker_autogen/timestamp

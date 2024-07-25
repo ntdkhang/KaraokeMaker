@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(KaraokeMaker VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_PREFIX_PATH "/Users/dk/Qt/6.7.2/macos/lib/cmake/")
+# set(CMAKE_PREFIX_PATH "/usr/local/Cellar/cmake/3.29.0/bin/cmake")
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)

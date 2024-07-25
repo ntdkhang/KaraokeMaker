@@ -1,9 +1,0 @@
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/KaraokeMaker.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/edit_cache.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/rebuild_cache.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/list_install_components.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/install.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/install/local.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/install/strip.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/KaraokeMaker_autogen_timestamp_deps.dir
-/Users/dk/Library/Mobile Documents/com~apple~CloudDocs/Documents/Dev/Learning/Qt/KaraokeMaker/CMakeFiles/KaraokeMaker_autogen.dir
