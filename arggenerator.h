@@ -10,7 +10,9 @@ public:
 
     QStringList CreateText(QString text);
 
-    QStringList BurnSubtitle(QString subtitleFileName, QString output = "output.mp4");
+    QStringList BurnSubtitle(QString subtitleFileName, QString outputFileName = "output.mp4");
+
+    QStringList SeparateAudioAndVideo();
 
 private:
     QString inputFileName;

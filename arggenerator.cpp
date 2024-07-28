@@ -1,5 +1,4 @@
 #include "arggenerator.h"
-#include <string>
 
 ArgGenerator::ArgGenerator(QString input) {
     inputFileName = input;
@@ -21,17 +20,33 @@ QStringList ArgGenerator::CreateText(QString text) {
     return args;
 }
 
-QStringList ArgGenerator::BurnSubtitle(QString subtitleFileName, QString output) {
+QStringList ArgGenerator::BurnSubtitle(QString subtitleFileName, QString outputFileName) {
     QStringList args;
-    std::string sub = "subtitles=sub.srt:force_style='Fontname=DejaVu Serif,FontSize=50'";
+    QString subArg = QString("subtitles=%1:force_style='Fontname=DejaVu Serif,FontSize=50'").arg(subtitleFileName);
 
     // ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi
     args    << "-i"
             << inputFileName
             << "-vf"
-            << QString::fromStdString(sub)
-            // << "\"subtitles=sub.srt:force_style=\'Fontname=DejaVu Serif,FontSize=50\'\""
-            << output;
+            << subArg
+            << outputFileName;
+
     return args;
 }
 
+QStringList ArgGenerator::SeparateAudioAndVideo() {
+    // ffmpeg -i vid.avi -map 0:a audio.wav -map 0:v onlyvideo.avi
+    QStringList args;
+
+    args    << "-i"
+            << inputFileName
+            << "-map"
+            << "0:a"
+            << "audio.mp3"
+            << "-map"
+            << "0:v"
+            << "video.mp4";
+
+    qInfo() << args;
+    return args;
+}

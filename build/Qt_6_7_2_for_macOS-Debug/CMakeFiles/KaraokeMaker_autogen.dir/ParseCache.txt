@@ -96,6 +96,7 @@
  mdp:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/stdio.h
  mdp:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/syslimits.h
  mdp:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h
+ mdp:/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.h
  mdp:/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/build/Qt_6_7_2_for_macOS-Debug/KaraokeMaker_autogen/moc_predefs.h
  mdp:/Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/mainwindow.h
  mdp:/Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/QByteArray

@@ -93,6 +93,7 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/syslimits.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/wait.h \
+  /Users/dk/Documents/Dev/Learning/Qt/KaraokeMaker/arggenerator.h \
   /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/QByteArray \
   /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/QCryptographicHash \
   /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/QDeadlineTimer \
