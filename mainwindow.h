@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "arggenerator.h"
 #include <QMainWindow>
 #include <QtMultimedia>
 #include <QtMultimediaWidgets>
@@ -59,6 +60,7 @@ private:
 
     QVideoWidget *video;
 
+    QString videoInputFileName;
 
     QAudioOutput *audioOutput;
     qint64 m_duration;

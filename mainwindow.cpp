@@ -79,14 +79,14 @@ void MainWindow::updateDurationInfo(qint64 currentInfo) {
 
 void MainWindow::on_actionOpen_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Select Video File"), "", tr("MP4 Files (*.mp4)"));
+    videoInputFileName = QFileDialog::getOpenFileName(this, tr("Select Video File"), "", tr("MP4 Files (*.mp4)"));
 
     video = new QVideoWidget();
     video->setGeometry(5, 5, player->groupBox_Video->width() - 10, player->groupBox_Video->height() - 10);
     video->setParent(player->groupBox_Video);
 
     m_player->setVideoOutput(video);
-    m_player->setSource(QUrl(fileName));
+    m_player->setSource(QUrl(videoInputFileName));
 
     video->setVisible(true);
     video->show();
@@ -134,41 +134,21 @@ void MainWindow::on_pushButton_mute_clicked()
 
 void MainWindow::on_pushButton_seek_backward_clicked()
 {
-    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() - 10000);
+    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() - 5000);
     m_player->setPosition(player->horizontalSlider_progress->value());
 }
 
 
 void MainWindow::on_pushButton_seek_forward_clicked()
 {
-    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() + 10000);
+    player->horizontalSlider_progress->setValue(player->horizontalSlider_progress->value() + 5000);
     m_player->setPosition(player->horizontalSlider_progress->value());
 }
 
 
-/*
-   ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi
-   */
 
 void MainWindow::on_pushButton_test_clicked()
 {
-    QObject *parent;
-    QString program = "/usr/local/Cellar/ffmpeg/7.0.1/bin/ffmpeg";
-    QString input = "/Users/dk/Downloads/XeDo.mp4";
-
-    ArgGenerator generator(input);
-
-    // TODO: how to choose file save destination?
-    QStringList arguments = generator.BurnSubtitle("sub.srt", "/Users/dk/Downloads/testOutput.mp4");
-
-    QProcess *myProcess = new QProcess(parent);
-
-    myProcess->start(program, arguments);
-    myProcess->waitForFinished();
-    QString stdOut(myProcess->readAllStandardOutput());
-    QString stdErr(myProcess->readAllStandardError());
-    qInfo() << stdOut;
-    qInfo() << stdErr;
 }
 
 
@@ -183,6 +163,23 @@ void MainWindow::on_pushButton_save_subtitles_clicked()
     srtFile << text.toStdString();
     srtFile.close();
 
+    // Render video with subtitle
+    QObject *parent;
+    QString program = "/usr/local/Cellar/ffmpeg/7.0.1/bin/ffmpeg";
+
+    ArgGenerator generator(videoInputFileName);
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save video as"), "", tr("Videos (*.mp4)"));
+    QStringList arguments = generator.BurnSubtitle("sub.srt", fileName);
+
+    QProcess *myProcess = new QProcess(parent);
+
+    myProcess->start(program, arguments);
+    myProcess->waitForFinished();
+    QString stdOut(myProcess->readAllStandardOutput());
+    QString stdErr(myProcess->readAllStandardError());
+    qInfo() << stdOut;
+    qInfo() << stdErr;
 }
 
 

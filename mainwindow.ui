@@ -193,7 +193,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Save Subtitles</string>
+     <string>Render Video</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_insert_time_start">
