@@ -4,15 +4,9 @@
 #include <OpenGL/OpenGL.h>
 #include <QtCore/qlogging.h>
 #include <QtCore/qprocess.h>
-#include <QtCore/qtenvironmentvariables.h>
 #include <QtMultimedia/qaudio.h>
 #include <QtWidgets/qfiledialog.h>
-#include <cstdio>
-#include <cstdlib>
 #include <fstream>
-#include <string>
-#include <stdio.h>
-#include <unistd.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -163,26 +157,19 @@ void MainWindow::on_pushButton_test_clicked()
     QString input = "/Users/dk/Downloads/XeDo.mp4";
 
     ArgGenerator generator(input);
-    QStringList arguments = generator.BurnSubtitle("sub.srt");
+
+    // TODO: how to choose file save destination?
+    QStringList arguments = generator.BurnSubtitle("sub.srt", "/Users/dk/Downloads/testOutput.mp4");
 
     QProcess *myProcess = new QProcess(parent);
 
     myProcess->start(program, arguments);
     myProcess->waitForFinished();
     QString stdOut(myProcess->readAllStandardOutput());
+    QString stdErr(myProcess->readAllStandardError());
     qInfo() << stdOut;
+    qInfo() << stdErr;
 }
-
-/*
-   ffmpeg
-   -i
-   /Users/dk/Downloads/XeDo.mp4
-   -vf
-   "drawtext=fontfile=/Library/Fonts/SF-Compact-Display-Regular.otf:text='Hello World':fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=(w-text_w)/2:y=(h-text_h)/2"
-   -codec:a
-   copy
-   output.mp4
-   */
 
 
 void MainWindow::on_pushButton_save_subtitles_clicked()

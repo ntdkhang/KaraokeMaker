@@ -191,7 +191,7 @@ build KaraokeMaker_autogen/timestamp KaraokeMaker_autogen/mocs_compilation.cpp |
 #############################################
 # Phony custom command for CMakeFiles/KaraokeMaker_autogen_timestamp_deps
 
-build CMakeFiles/KaraokeMaker_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/KaraokeMaker_autogen_timestamp_deps: phony /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets /Users/dk/Qt/6.7.2/macos/./libexec/uic /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia /Users/dk/Qt/6.7.2/macos/./libexec/moc
+build CMakeFiles/KaraokeMaker_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/KaraokeMaker_autogen_timestamp_deps: phony /Users/dk/Qt/6.7.2/macos/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets /Users/dk/Qt/6.7.2/macos/./libexec/moc /Users/dk/Qt/6.7.2/macos/./libexec/uic /Users/dk/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dk/Qt/6.7.2/macos/lib/QtMultimedia.framework/Versions/A/QtMultimedia /Users/dk/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore
 
 
 #############################################
