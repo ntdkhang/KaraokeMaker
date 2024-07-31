@@ -54,6 +54,11 @@ private slots:
 
     void on_actionOpen_original_audio_triggered();
 
+    void separateVocal();
+
+    void vocalSeparated();
+
+
 private:
     Ui::MainWindow *player;
     QMediaPlayer *m_player;
@@ -67,6 +72,12 @@ private:
     bool is_paused = true;
     bool is_muted = false;
     qint32 subtitleIndex = 1;
+
+    ArgGenerator arggenerator;
+
+    QProcess *vocalSeparationProcess;
+    QProcess *audioSeparationProcess;
+    QProcess *subtitleBurnProcess;
 
     void updateDurationInfo(qint64 currentInfo);
 };
