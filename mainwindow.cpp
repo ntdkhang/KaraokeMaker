@@ -74,12 +74,9 @@ void MainWindow::updateDurationInfo(qint64 currentInfo) {
     // currentInfo is the progress in milliseconds
 
     if (currentInfo || m_duration) {
-        QTime currentTime((currentInfo / 3600000) % 60, (currentInfo / 60000) % 60, ((currentInfo / 1000) % 60));
-        QTime totalTime((m_duration / 3600000) % 60, (m_duration / 60000) % 60, (m_duration / 1000 % 60));
-        QString format = "mm:ss";
-        if (m_duration > 3600) {
-            format = "hh:mm:ss";
-        }
+        QTime currentTime((currentInfo / 3600000) % 60, (currentInfo / 60000) % 60, ((currentInfo / 1000) % 60), (currentInfo % 1000));
+        QTime totalTime((m_duration / 3600000) % 60, (m_duration / 60000) % 60, (m_duration / 1000 % 60), (m_duration % 1000));
+        QString format = "mm:ss,zzz";
         QString currentLabel, totalLabel;
         currentLabel = currentTime.toString(format);
         totalLabel = totalTime.toString(format);
@@ -125,6 +122,7 @@ void MainWindow::on_actionOpen_triggered()
     // QString stdErr(audioSeparationProcess->readAllStandardError());
     // qInfo() << stdOut;
     // qInfo() << stdErr;
+
 }
 
 void MainWindow::on_horizontalSlider_volume_valueChanged(int value)
@@ -188,7 +186,7 @@ void MainWindow::on_pushButton_test_clicked()
 
     // Render video with subtitle
     QString outputFileName = QFileDialog::getSaveFileName(this, tr("Save video as"), "", tr("Videos (*.mp4)"));
-    QStringList arguments = arggenerator.BurnSubtitle("sub.srt", outputFileName);
+    QStringList arguments = arggenerator.BurnSubtitle("./sub.srt", outputFileName);
 
     subtitleBurnProcess = new QProcess(parent);
     subtitleBurnProcess->start(arggenerator.ffmpeg, arguments);
@@ -220,8 +218,8 @@ void MainWindow::on_pushButton_insert_time_start_clicked()
     player->plainTextEdit_create_sub->insertPlainText(QString::number(subtitleIndex));
     player->plainTextEdit_create_sub->insertPlainText("\n");
 
-    QString timeStart = player->label_current_time->text();
-    timeStart.append(",000");
+    QString timeStart = "00:" + player->label_current_time->text();
+    // timeStart.append(",000");
     player->plainTextEdit_create_sub->insertPlainText(timeStart);
     player->plainTextEdit_create_sub->insertPlainText(" --> ");
 }
@@ -229,8 +227,8 @@ void MainWindow::on_pushButton_insert_time_start_clicked()
 
 void MainWindow::on_pushButton_insert_time_end_clicked()
 {
-    QString timeEnd = player->label_current_time->text();
-    timeEnd.append(",000");
+    QString timeEnd = "00:" + player->label_current_time->text();
+    // timeEnd.append(",000");
 
     player->plainTextEdit_create_sub->moveCursor(QTextCursor::End);
     player->plainTextEdit_create_sub->insertPlainText(timeEnd);
@@ -281,30 +279,30 @@ void MainWindow::on_actionOpen_original_audio_triggered()
 
 void MainWindow::separateVocal() {
     QObject *parent;
-    qInfo() << "separateVocal";
+    qInfo() << "Separating vocal from music";
     QStringList arguments = arggenerator.SeparateVocal();
 
     vocalSeparationProcess = new QProcess(parent);
     connect(vocalSeparationProcess, &QProcess::finished, this, &MainWindow::vocalSeparated);
-
     vocalSeparationProcess->start(arggenerator.python, arguments);
 }
 
 
 void MainWindow::vocalSeparated() {
-    QObject *parent;
-    qInfo() << "vocalSeparated";
     // create a new video with beat as audio.
 
-    QStringList arguments = arggenerator.AddNewAudio();
-    addNewAudioProcess = new QProcess(parent);
+    QObject *parent;
+    qInfo() << "Vocal separated, now putting non-vocal music back to video";
 
+    QStringList arguments = arggenerator.AddNewAudio();
+
+    addNewAudioProcess = new QProcess(parent);
     connect(addNewAudioProcess, &QProcess::finished, this, &MainWindow::newAudioAdded);
     addNewAudioProcess->start(arggenerator.ffmpeg, arguments);
 }
 
 
 void MainWindow::newAudioAdded() {
-    qInfo() << "newAudioAdded";
+    qInfo() << "Non-vocal music added back to video";
     player->pushButton_test->setEnabled(true);
 }

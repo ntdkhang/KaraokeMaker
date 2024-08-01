@@ -114,9 +114,9 @@
    <widget class="QSlider" name="horizontalSlider_progress">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>460</y>
-      <width>631</width>
+      <width>621</width>
       <height>25</height>
      </rect>
     </property>
@@ -129,7 +129,7 @@
      <rect>
       <x>10</x>
       <y>460</y>
-      <width>71</width>
+      <width>81</width>
       <height>16</height>
      </rect>
     </property>
@@ -139,7 +139,7 @@
      </font>
     </property>
     <property name="text">
-     <string>00:00:00</string>
+     <string>00:00,000</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_total_time">
@@ -147,7 +147,7 @@
      <rect>
       <x>720</x>
       <y>460</y>
-      <width>71</width>
+      <width>81</width>
       <height>16</height>
      </rect>
     </property>
@@ -157,7 +157,7 @@
      </font>
     </property>
     <property name="text">
-     <string>00:00:00</string>
+     <string>00:00,000</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_test">

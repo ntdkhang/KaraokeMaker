@@ -11,7 +11,7 @@ public:
 
     QStringList CreateText(QString text);
 
-    QStringList BurnSubtitle(QString subtitleFileName, QString outputFileName = "output.mp4");
+    QStringList BurnSubtitle(QString subtitleFileName = "./sub.srt", QString outputFileName = "output.mp4");
 
     QStringList SeparateAudioAndVideo();
 
@@ -26,7 +26,7 @@ public:
 
 private:
     QString inputFileName;
-    QString newAudioVideoFileName;
+    QString nonVocalVideoFileName;
 };
 
 #endif // ARGGENERATOR_H
