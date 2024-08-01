@@ -47,10 +47,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_player, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
     connect(player->horizontalSlider_progress, &QSlider::sliderMoved, m_player, &QMediaPlayer::setPosition);
 
-    audioSeparationProcess = new QProcess();
+    // audioSeparationProcess = new QProcess();
     // connect(audioSeparationProcess, &QProcess::finished, this, &MainWindow::separateVocal);
-    connect(audioSeparationProcess, &QProcess::finished, this, &MainWindow::vocalSeparated);
     // connect(vocalSeparationProcess, &QProcess::finished, this, &MainWindow::vocalSeparated);
+
+    // connect(audioSeparationProcess, &QProcess::finished, this, &MainWindow::vocalSeparated);
 }
 
 MainWindow::~MainWindow()
@@ -111,13 +112,19 @@ void MainWindow::on_actionOpen_triggered()
     QStringList arguments = arggenerator.SeparateAudioAndVideo();
 
     audioSeparationProcess = new QProcess(parent);
+    // connect(audioSeparationProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+    //         [=](int exitCode, QProcess::ExitStatus exitStatus){
+    //         qDebug()<<"finished";
+    //         });
+    connect(audioSeparationProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MainWindow::separateVocal);
+
     audioSeparationProcess->start(program, arguments);
 
-    audioSeparationProcess->waitForFinished();
-    QString stdOut(audioSeparationProcess->readAllStandardOutput());
-    QString stdErr(audioSeparationProcess->readAllStandardError());
-    qInfo() << stdOut;
-    qInfo() << stdErr;
+    // audioSeparationProcess->waitForFinished();
+    // QString stdOut(audioSeparationProcess->readAllStandardOutput());
+    // QString stdErr(audioSeparationProcess->readAllStandardError());
+    // qInfo() << stdOut;
+    // qInfo() << stdErr;
 }
 
 void MainWindow::on_horizontalSlider_volume_valueChanged(int value)
@@ -281,20 +288,15 @@ void MainWindow::on_actionOpen_original_audio_triggered()
 void MainWindow::separateVocal() {
     QObject *parent;
     QString python = "/usr/local/Cellar/python@3.11/3.11.7_1/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python";
-
-
     QStringList arguments = arggenerator.SeparateVocal();
-
+    qInfo() << "separate vocal";
 
     vocalSeparationProcess = new QProcess(parent);
+    connect(vocalSeparationProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MainWindow::vocalSeparated);
 
     vocalSeparationProcess->start(python, arguments);
     // vocalSeparationProcess->waitForFinished();
 
-    QString stdOut(vocalSeparationProcess->readAllStandardOutput());
-    qInfo() << stdOut;
-    QString stdErr(vocalSeparationProcess->readAllStandardError());
-    qInfo() << stdErr;
 }
 
 
