@@ -58,6 +58,8 @@ private slots:
 
     void vocalSeparated();
 
+    void newAudioAdded();
+
 
 private:
     Ui::MainWindow *player;
@@ -78,6 +80,7 @@ private:
     QProcess *vocalSeparationProcess;
     QProcess *audioSeparationProcess;
     QProcess *subtitleBurnProcess;
+    QProcess *addNewAudioProcess;
 
     void updateDurationInfo(qint64 currentInfo);
 };

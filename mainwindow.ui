@@ -163,14 +163,14 @@
    <widget class="QPushButton" name="pushButton_test">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>480</y>
-      <width>51</width>
+      <x>590</x>
+      <y>620</y>
+      <width>121</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>RENDER VIDEO</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="plainTextEdit_subtitle">
@@ -193,7 +193,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Render Video</string>
+     <string>Save Lyrics</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_insert_time_start">
@@ -242,7 +242,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Insert subtitle line</string>
+     <string>Insert lyric line</string>
     </property>
    </widget>
   </widget>
@@ -274,12 +274,17 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>Open Music Video</string>
    </property>
   </action>
   <action name="actionOpen_original_audio">
    <property name="text">
     <string>Open original audio</string>
+   </property>
+  </action>
+  <action name="actionOpen_Music_Video">
+   <property name="text">
+    <string>Open Music Video</string>
    </property>
   </action>
  </widget>

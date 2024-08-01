@@ -46,6 +46,7 @@ QStringList ArgGenerator::AddNewAudio(QString videoFileName, QString audioFileNa
             << "1:a:0"
             << outputFileName;
 
+    newAudioVideoFileName = outputFileName;
     return args;
 }
 
@@ -56,7 +57,7 @@ QStringList ArgGenerator::BurnSubtitle(QString subtitleFileName, QString outputF
     // ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi
     args    << "-y"
             << "-i"
-            << inputFileName
+            << newAudioVideoFileName
             << "-vf"
             << subArg
             << outputFileName;

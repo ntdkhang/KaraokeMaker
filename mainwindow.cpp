@@ -3,6 +3,7 @@
 #include "arggenerator.h"
 #include <OpenGL/OpenGL.h>
 #include <QtCore/qlogging.h>
+#include <QtCore/qoverload.h>
 #include <QtCore/qprocess.h>
 #include <QtMultimedia/qaudio.h>
 #include <QtWidgets/qfiledialog.h>
@@ -107,8 +108,6 @@ void MainWindow::on_actionOpen_triggered()
 
 
     // Separate audio in background
-
-    QString program = "/usr/local/Cellar/ffmpeg/7.0.1/bin/ffmpeg";
     QStringList arguments = arggenerator.SeparateAudioAndVideo();
 
     audioSeparationProcess = new QProcess(parent);
@@ -116,9 +115,10 @@ void MainWindow::on_actionOpen_triggered()
     //         [=](int exitCode, QProcess::ExitStatus exitStatus){
     //         qDebug()<<"finished";
     //         });
-    connect(audioSeparationProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MainWindow::separateVocal);
+    // connect(audioSeparationProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MainWindow::separateVocal);
+    connect(audioSeparationProcess, &QProcess::finished, this, &MainWindow::separateVocal);
 
-    audioSeparationProcess->start(program, arguments);
+    audioSeparationProcess->start(arggenerator.ffmpeg, arguments);
 
     // audioSeparationProcess->waitForFinished();
     // QString stdOut(audioSeparationProcess->readAllStandardOutput());
@@ -187,14 +187,11 @@ void MainWindow::on_pushButton_test_clicked()
     QObject *parent;
 
     // Render video with subtitle
-    QString program = "/usr/local/Cellar/ffmpeg/7.0.1/bin/ffmpeg";
     QString outputFileName = QFileDialog::getSaveFileName(this, tr("Save video as"), "", tr("Videos (*.mp4)"));
-    qInfo() << outputFileName;
-
     QStringList arguments = arggenerator.BurnSubtitle("sub.srt", outputFileName);
 
     subtitleBurnProcess = new QProcess(parent);
-    subtitleBurnProcess->start(program, arguments);
+    subtitleBurnProcess->start(arggenerator.ffmpeg, arguments);
     subtitleBurnProcess->waitForFinished();
 
     QString stdOut(subtitleBurnProcess->readAllStandardOutput());
@@ -214,9 +211,6 @@ void MainWindow::on_pushButton_save_subtitles_clicked()
     srtFile.open("sub.srt");
     srtFile << text.toStdString();
     srtFile.close();
-
-    sleep(1000);
-
 }
 
 
@@ -287,20 +281,30 @@ void MainWindow::on_actionOpen_original_audio_triggered()
 
 void MainWindow::separateVocal() {
     QObject *parent;
-    QString python = "/usr/local/Cellar/python@3.11/3.11.7_1/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python";
+    qInfo() << "separateVocal";
     QStringList arguments = arggenerator.SeparateVocal();
-    qInfo() << "separate vocal";
 
     vocalSeparationProcess = new QProcess(parent);
-    connect(vocalSeparationProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MainWindow::vocalSeparated);
+    connect(vocalSeparationProcess, &QProcess::finished, this, &MainWindow::vocalSeparated);
 
-    vocalSeparationProcess->start(python, arguments);
-    // vocalSeparationProcess->waitForFinished();
-
+    vocalSeparationProcess->start(arggenerator.python, arguments);
 }
 
 
 void MainWindow::vocalSeparated() {
+    QObject *parent;
     qInfo() << "vocalSeparated";
+    // create a new video with beat as audio.
+
+    QStringList arguments = arggenerator.AddNewAudio();
+    addNewAudioProcess = new QProcess(parent);
+
+    connect(addNewAudioProcess, &QProcess::finished, this, &MainWindow::newAudioAdded);
+    addNewAudioProcess->start(arggenerator.ffmpeg, arguments);
+}
+
+
+void MainWindow::newAudioAdded() {
+    qInfo() << "newAudioAdded";
     player->pushButton_test->setEnabled(true);
 }
